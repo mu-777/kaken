@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node ns="frigo" name="ar_pose2relative_pose_stamped" pkg="ar_pose2relative_pose_stamped"
+          type="ar_pose2relative_pose_stamped.py" output="screen">
+        <remap from="ar_pose_marker_topic" to="ar_pose_marker"/>
+        <remap from="position_topic" to="/position_frigo_1"/>
+        <param name="loop_rate_hz" type="int" value="100"/>
+        <param name="ar_marker_target_id_front" type="int" value="0"/>
+        <param name="ar_marker_target_id_left" type="int" value="1"/>
+        <param name="ar_marker_target_id_right" type="int" value="2"/>
+        <param name="ar_marker_target_id_back" type="int" value="3"/>
+        <param name="relative_pose_stamped_target_name" type="str" value="kohga3_1"/>
+    </node>
+
+    <node ns="umrs2009" name="ar_pose2relative_pose_stamped" pkg="ar_pose2relative_pose_stamped"
+          type="ar_pose2relative_pose_stamped.py" output="screen">
+        <remap from="ar_pose_marker_topic" to="ar_pose_marker"/>
+        <remap from="position_topic" to="/position_umrs2009_1"/>
+        <param name="loop_rate_hz" type="int" value="100"/>
+        <param name="ar_marker_target_id_front" type="int" value="0"/>
+        <param name="ar_marker_target_id_left" type="int" value="1"/>
+        <param name="ar_marker_target_id_right" type="int" value="2"/>
+        <param name="ar_marker_target_id_back" type="int" value="3"/>
+        <param name="relative_pose_stamped_target_name" type="str" value="frigo_1"/>
+    </node>
+
+    <node ns="umrs2010" name="ar_pose2relative_pose_stamped" pkg="ar_pose2relative_pose_stamped"
+          type="ar_pose2relative_pose_stamped.py" output="screen">
+        <remap from="ar_pose_marker_topic" to="ar_pose_marker"/>
+        <remap from="position_topic" to="/position_umrs2010_1"/>
+        <param name="loop_rate_hz" type="int" value="100"/>
+        <param name="ar_marker_target_id_front" type="int" value="0"/>
+        <param name="ar_marker_target_id_left" type="int" value="1"/>
+        <param name="ar_marker_target_id_right" type="int" value="2"/>
+        <param name="ar_marker_target_id_back" type="int" value="3"/>
+        <param name="relative_pose_stamped_target_name" type="str" value="umrs2009_1"/>
+    </node>
+
+</launch>
